@@ -1,0 +1,32 @@
+function personalBmi(name, age, weight, heightCm) {
+
+
+    let  chart = {
+        name: name,
+        personalInfo: {
+            age: age,
+            weight: weight,
+            height: heightCm
+        },
+        BMI: Math.round(weight / (heightCm / 100 * heightCm / 100))
+    }
+
+    let status = "";
+
+    if( chart.BMI < 18.5){
+        status = "underweight";
+    }else if( chart.BMI >= 18.5 &&  chart.BMI < 25){
+        status = "normal";
+    }else if( chart.BMI >= 25 &&  chart.BMI < 30){
+        status = "overweight";
+    }else{
+        status = "obese";
+    }
+     chart.status = status;
+
+    if(status === "obese"){
+         chart.recommendation = "admission required";
+    }
+
+    return chart;
+}
